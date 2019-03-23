@@ -1,0 +1,42 @@
+//Frame sorting Algorithm
+from random import *
+
+frame_size=3
+di=[]
+
+string=input('Enter the message:')
+
+
+if len(string)%3!=0:
+    string=string+(3-len(string)%3)*' '
+else:
+    pass
+
+for i in range(0,len(string),3):
+    li=''
+    for j in range(i,i+3):
+        li+=string[j]
+    di.append(li)
+print(di)
+li={}
+for i in range(len(di)):
+    li[i]=di[i]
+print('sent message is :')
+print(li)
+keys=list(li.keys())
+print('received message is:')
+shuffle(keys)
+for i in keys:
+    print("{}:'{}'".format(i,li[i]),end=' ')
+print()
+
+
+print('After framesorting at the reciever end')
+keys.sort()
+message=''
+for i in keys:
+    message+=li[i]
+    print("{}:'{}'".format(i,li[i]),end=' ')
+print()
+
+print('The final message is:{}'.format(message))
